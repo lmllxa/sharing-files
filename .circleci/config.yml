@@ -25,18 +25,18 @@ jobs:
       - run: cd workspace
       - run: echo "hello world" > output.txt
       - persist_to_workspace:
-          root: ~/project
+          root: ~/project/workspace
           # must be relative path from root
           paths:
-            - workspace/*
+            - .
   print_output_file:
     working_directory: ~/project
     docker:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
-          at: ~/project
-      - run: cat workspace/output.txt 
+          at: ~/project/workspace
+      - run: cat output.txt 
 workflows:
   # Name the workflow "welcome"
   welcome:
