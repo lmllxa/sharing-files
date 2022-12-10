@@ -36,10 +36,11 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/project/workspace
+      - run: pwd
       - run: cd workspace
       - run: pwd
       - run: ls -al
-      - run: cat /workspace/output.txt 
+      - run: cat ~/project/workspace/output.txt 
 workflows:
   # Name the workflow "welcome"
   welcome:
