@@ -23,7 +23,7 @@ jobs:
       - run: mkdir -p workspace
       - run: echo "hello world" > output.txt
       - persist_to_workspace:
-          root: /workspace
+          root: workspace
           # must be relative path from root
           paths:
             - echo-output
@@ -32,8 +32,8 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
-          at: /workspace
-      - run: cat /workspace/echo-output/output.txt 
+          at: workspace
+      - run: cat workspace/echo-output/output.txt 
 workflows:
   # Name the workflow "welcome"
   welcome:
