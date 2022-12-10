@@ -27,7 +27,7 @@ jobs:
       - run: echo "hello world" > output.txt
       - run: ls -la
       - persist_to_workspace:
-          root: ~/project/workspace
+          root: ~/project
           # must be relative path from root
           paths:
             - .
