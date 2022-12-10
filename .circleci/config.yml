@@ -17,10 +17,12 @@ jobs:
     steps:
       - run: echo world
   save_hello_world_output:
+    working_directory: ~/project
     docker:
       - image: circleci/node:13.8.0
     steps:
       - run: mkdir -p workspace
+      - run: cd workspace
       - run: echo "hello world" > output.txt
       - persist_to_workspace:
           root: workspace
@@ -28,11 +30,12 @@ jobs:
           paths:
             - output.txt
   print_output_file:
+    working_directory: ~/project
     docker:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
-          at: workspace
+          at: ~/project
       - run: cat workspace/output.txt 
 workflows:
   # Name the workflow "welcome"
