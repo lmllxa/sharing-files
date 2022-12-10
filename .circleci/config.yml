@@ -23,7 +23,9 @@ jobs:
     steps:
       - run: mkdir workspace
       - run: cd workspace
+      - run: pwd
       - run: echo "hello world" > output.txt
+      - run: ls -la
       - persist_to_workspace:
           root: ~/project/workspace
           # must be relative path from root
@@ -40,7 +42,7 @@ jobs:
       - run: cd workspace
       - run: pwd
       - run: ls -al
-      - run: cat ~/project/workspace/output.txt 
+      - run: cat ~/output.txt 
 workflows:
   # Name the workflow "welcome"
   welcome:
