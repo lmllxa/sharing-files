@@ -16,10 +16,15 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo world
-  save_hello_world_output:
+  defaults: &defaults
     working_directory: ~/project/workspace
     docker:
-      - image: circleci/node:13.8.0
+      - image: circleci/node:13.8.0  
+  save_hello_world_output:
+    <<: *defaults
+    #working_directory: ~/project/workspace
+    #docker:
+      #- image: circleci/node:13.8.0
     steps:
       #- run: mkdir workspace
       #- run: cd workspace
@@ -32,9 +37,10 @@ jobs:
           paths:
             - .
   print_output_file:
-    working_directory: ~/project/workspace
-    docker:
-      - image: circleci/node:13.8.0
+    <<: *defaults
+    #working_directory: ~/project/workspace
+    #docker:
+      #- image: circleci/node:13.8.0
     steps:
       - attach_workspace:
           at: ~/project/workspace
