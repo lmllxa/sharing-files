@@ -39,7 +39,7 @@ jobs:
       - run: cd workspace
       - run: pwd
       - run: ls -al
-      - run: cat output.txt 
+      - run: cat /workspace/output.txt 
 workflows:
   # Name the workflow "welcome"
   welcome:
