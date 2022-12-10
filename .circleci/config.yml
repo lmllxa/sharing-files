@@ -25,10 +25,10 @@ jobs:
       - run: cd workspace
       - run: echo "hello world" > output.txt
       - persist_to_workspace:
-          root: workspace
+          root: ~/project
           # must be relative path from root
           paths:
-            - workspace/*
+            - ~/project/workspace/*
   print_output_file:
     working_directory: ~/project
     docker:
