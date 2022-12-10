@@ -28,7 +28,7 @@ jobs:
           root: ~/project
           # must be relative path from root
           paths:
-            - ~/project/workspace/*
+            - workspace/*
   print_output_file:
     working_directory: ~/project
     docker:
