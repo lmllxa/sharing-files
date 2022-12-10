@@ -26,14 +26,14 @@ jobs:
           root: workspace
           # must be relative path from root
           paths:
-            - echo-output
+            - output.txt
   print_output_file:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
           at: workspace
-      - run: cat workspace/echo-output/output.txt 
+      - run: cat workspace/output.txt 
 workflows:
   # Name the workflow "welcome"
   welcome:
