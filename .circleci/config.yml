@@ -21,14 +21,14 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: mkdir -p workspace
+      - run: mkdir workspace
       - run: cd workspace
       - run: echo "hello world" > output.txt
       - persist_to_workspace:
           root: workspace
           # must be relative path from root
           paths:
-            - output.txt
+            - workspace/*
   print_output_file:
     working_directory: ~/project
     docker:
